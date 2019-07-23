@@ -1,14 +1,23 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from 'styled-components'
+import BackgroundImage from "gatsby-background-image"
+import profileImage from '../images/profile-image-test.jpg'
 
-const reducedImage = styled.img`
-    width: 50px;    
-    height: 50px;
+const ReducedImage = styled.div`
+    
+    width: 280px;
+    height: 280px;
+
+    border-radius: 10.6303px;
+    background: url(${profileImage});
+    background-size: cover;
 `
 
 
 export const ProfileImage = ({profile_image}) => {
-    return <img src={profile_image} alt="Photo de profil"/>
+    return (
+        <ReducedImage />
+    )
 } 
 
