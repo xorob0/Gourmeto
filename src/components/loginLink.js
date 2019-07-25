@@ -14,6 +14,7 @@ align-items:center;
 color: #FFFFFF;
 width: 142px;
 height: 43px;
+cursor:pointer;
 `
 
 const TextLoginWrapper = styled.div`
@@ -28,6 +29,7 @@ align-items:center;
 color: #FFFFFF;
 width: 210.22px;
 height: 43px;
+cursor:pointer;
 `
 
 const Highlighting = styled.div`
@@ -35,6 +37,13 @@ background: #C4C4C4;
 border-radius: 12.069px;
 width: 146px;
 height: 12px;
+`
+
+const HighlightingTwo = styled.div`
+background: #C4C4C4;
+border-radius: 12.069px;
+width: 210px;
+height: 12.07px;
 `
 
 const TransparentHighlighting = styled.div`
@@ -52,7 +61,7 @@ justify-content:center;
 `
 
 export const LoginLink = ({contain}) => {
-    if(contain === 'S\'inscrire'){
+    if(contain === 'S\'inscrire' && window.location.pathname == "/subscription"){
         return(
             <>
                 <LoginContainer>
@@ -65,7 +74,7 @@ export const LoginLink = ({contain}) => {
             </>
         )
     }
-    else{
+    else if(contain === 'Se connecter' && window.location.pathname == "/subscription"){
         return(
             <>
                 <LoginContainer>
@@ -73,6 +82,30 @@ export const LoginLink = ({contain}) => {
                         {contain}
                     </TextLoginWrapper>
                     <TransparentHighlighting />
+                </LoginContainer>
+            </>
+        )
+    }
+    else if(contain === 'S\'inscrire' && window.location.pathname == "/login"){
+        return(
+            <>
+                <LoginContainer>
+                    <TextLoginWrapper>
+                        {contain}
+                    </TextLoginWrapper>
+                    <TransparentHighlighting />
+                </LoginContainer>
+            </>
+        )
+    }
+    else{
+        return(
+            <>
+                <LoginContainer>
+                    <TextLoginWrapper>
+                        {contain}
+                    </TextLoginWrapper>
+                    <HighlightingTwo />
                 </LoginContainer>
             </>
         )

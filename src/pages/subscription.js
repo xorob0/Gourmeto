@@ -49,6 +49,8 @@ export default () => (
                 <FormInput placeholder="Pseudo"/>
                 <FormInput placeholder="E-mail"/>
                 <FormInput placeholder="Mot de passe"/>
+                <FormInput placeholder="Ville"/>
+                <FormInput placeholder="Pays"/>
                 <MainButton contain="Inscrivez-vous" />
             </InputsContainer>
         </Container>
