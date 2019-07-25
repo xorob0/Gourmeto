@@ -13,6 +13,7 @@ justify-content:center;
 border-radius: 7.40084px;
 padding:15px;
 margin-top:20px;
+cursor:pointer;
 `
 
 const TextWrapper = styled.span`

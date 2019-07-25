@@ -56,7 +56,7 @@ export default () => (
                 </ProfileDataContainer>
             </ProfileContainer>
 
-        <ViewsList />  
+            <ViewsList />  
             
         </Container>
     </>

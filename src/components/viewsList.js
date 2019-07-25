@@ -1,6 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from 'styled-components'
+import {ViewBoard} from '../components/viewBoard'
 
 const Title = styled.div`
 font-family: Roboto;
@@ -25,14 +26,12 @@ const ViewsListWrapper = styled.div`
     flex-direction:column;
 `;
 
-
-
 export const ViewsList = ({viewsNumber}) => {
     return (
         <>
         <ViewsListWrapper>
             <Title>Avis</Title>
-            <View/>
+            <ViewBoard name="William Dupont" time="59 minutes" place="La Lorgnette" description="blablablabla"/>
         </ViewsListWrapper>
            
         </>
