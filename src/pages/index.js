@@ -1,20 +1,55 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import { Link } from "gatsby"
+import firebase from '../utils/firebase'
 
 import Layout from "../components/layout"
 import Image from "../components/image"
-import SEO from "../components/seo"
+import {FloatingButton} from "../components/floatingButton"
+import {MainTitle} from "../components/mainTitle"
+import { SearchBar } from '../components/searchBar'
+import {ViewsList} from '../components/viewsList'
+import background from '../images/background.jpg'
+import styled from 'styled-components'
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Bonjour !</h1>
-    <p>Ceci est le Travail de Fin d'Etude de Sam Mahaux.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Aller à la page 2</Link>
-  </Layout>
+
+const Container = styled.div`
+height:1500px;
+display: flex;
+background: url(${background});
+background-size: cover;
+box-shadow: inset 0px 10px 250px #000000;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+`
+const TitleSearchBarContainer = styled.div`
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+`
+
+const IndexPage = () => {
+  /*const view = {name:' yyy'}
+
+    const ref = firebase.database().ref('places/1')
+    ref.on("value", snapshot => console.log(snapshot.val()))   
+
+    ref.update({name: 'ttt'})*/
+
+  return(
+  <>
+    <Container>
+      <FloatingButton children="Se connecter"></FloatingButton>
+      <TitleSearchBarContainer>
+        <MainTitle />
+        <SearchBar />
+      </TitleSearchBarContainer>
+      <ViewsList />
+    </Container>
+  </>
 )
+  }
+
 
 export default IndexPage
