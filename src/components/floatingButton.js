@@ -1,6 +1,7 @@
 import React, { Children } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from 'styled-components'
+import { Link } from "gatsby"
 
 const Button = styled.div`
 position: absolute;
@@ -36,10 +37,8 @@ border-radius: 4px;
 
 export const FloatingButton = ({children}) => {
     return(
-        <>
-            <Button>
-                <Text>{children}</Text>
-            </Button>
+        <>           
+            <Link to="/login" style={{ textDecoration: 'none', color:'#EFEFEF' }}><Button><Text>{children}</Text></Button></Link>           
         </>
     )
 }

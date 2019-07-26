@@ -1,6 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from 'styled-components'
+import { Link } from "gatsby"
 
 const Button = styled.div`
 cursor:pointer;
@@ -28,12 +29,10 @@ color: #FFFFFF;
 border-radius: 4px;
 `
 
-export const MainButton = ({contain}) => {
+export const MainButton = ({contain, link}) => {
     return(
-        <>
-            <Button>
-                <Text>{contain}</Text>
-            </Button>
+        <>          
+            <Link to={link} style={{ textDecoration: 'none', color:'#EFEFEF' }}><Button><Text>{contain}</Text></Button></Link>        
         </>
     )
 }

@@ -11,6 +11,7 @@ const ReducedImage = styled.div`
     border-radius: 10.6303px;
     background: url(${profileImage});
     background-size: cover;
+    cursor:pointer;
 `
 
 

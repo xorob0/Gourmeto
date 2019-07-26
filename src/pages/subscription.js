@@ -51,7 +51,7 @@ export default () => (
                 <FormInput placeholder="Mot de passe"/>
                 <FormInput placeholder="Ville"/>
                 <FormInput placeholder="Pays"/>
-                <MainButton contain="Inscrivez-vous" />
+                <MainButton contain="Inscrivez-vous" link="/"/>
             </InputsContainer>
         </Container>
     </>

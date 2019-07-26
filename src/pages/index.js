@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react"
-import { Link } from "gatsby"
 import firebase from '../utils/firebase'
 
 import Layout from "../components/layout"

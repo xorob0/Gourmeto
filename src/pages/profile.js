@@ -8,7 +8,8 @@ import {ViewsNumber} from '../components/viewsNumber'
 import {ViewsList} from '../components/viewsList'
 import profileImage from '../images/profile-image-test.jpg'
 import background from '../images/background.jpg'
-import { LikesNumber } from "../components/likesNumber";
+import { LikesNumber } from "../components/likesNumber"
+import firebase from '../utils/firebase'
 
 const Container = styled.div`
 height:1500px;
@@ -35,10 +36,17 @@ justify-content: space-evenly;
 
 const ViewsLikesContainer = styled.div`
 display: flex;
-`
+` 
 
+const userRef = firebase.database().ref('users/1');
+userRef.once("value")
+  .then(function(snapshot) {
+        var name = snapshot.val().name;
+  });
 
-export default () => (
+export default () => {
+  
+    return(
     <>
         <Container>
             <ProfileContainer>
@@ -46,11 +54,11 @@ export default () => (
                     profile_image={profileImage}
                 />
                 <ProfileDataContainer>
-                    <ProfileTitle name="William Dupont"/>
-                    <ProfilePlace place="Bruxelles, Belgique"/>
+                    <ProfileTitle name="Ui"/>
+                    <ProfilePlace place="Ui"/>
                     <ViewsLikesContainer>
-                        <ViewsNumber viewsNumber='3' />
-                        <LikesNumber likesNumber='105' />
+                        <ViewsNumber viewsNumber="Ui" />
+                        <LikesNumber likesNumber="Ui" />
                     </ViewsLikesContainer>
                     <ProfileButton />
                 </ProfileDataContainer>
@@ -60,4 +68,5 @@ export default () => (
             
         </Container>
     </>
-)
+    )
+}

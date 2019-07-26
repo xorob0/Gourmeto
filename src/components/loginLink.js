@@ -1,6 +1,9 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from 'styled-components'
+import { Link } from "gatsby"
+
+
 
 const TextSubscriptionWrapper = styled.div`
 font-family: Roboto;
@@ -66,7 +69,7 @@ export const LoginLink = ({contain}) => {
             <>
                 <LoginContainer>
                     <TextSubscriptionWrapper>
-                        {contain}
+                        <Link to="/subscription" style={{ textDecoration: 'none', color: '#EFEFEF' }}>{contain}</Link>
                     </TextSubscriptionWrapper>
                     <Highlighting />
                 </LoginContainer>
@@ -79,7 +82,7 @@ export const LoginLink = ({contain}) => {
             <>
                 <LoginContainer>
                     <TextLoginWrapper>
-                        {contain}
+                        <Link to="/login" style={{ textDecoration: 'none', color:'#EFEFEF' }}>{contain}</Link>
                     </TextLoginWrapper>
                     <TransparentHighlighting />
                 </LoginContainer>
@@ -91,7 +94,7 @@ export const LoginLink = ({contain}) => {
             <>
                 <LoginContainer>
                     <TextLoginWrapper>
-                        {contain}
+                    <Link to="/subscription" style={{ textDecoration: 'none', color: '#EFEFEF' }}>{contain}</Link>
                     </TextLoginWrapper>
                     <TransparentHighlighting />
                 </LoginContainer>
@@ -103,7 +106,7 @@ export const LoginLink = ({contain}) => {
             <>
                 <LoginContainer>
                     <TextLoginWrapper>
-                        {contain}
+                        <Link to="/login" style={{ textDecoration: 'none', color: '#EFEFEF' }}>{contain}</Link>
                     </TextLoginWrapper>
                     <HighlightingTwo />
                 </LoginContainer>

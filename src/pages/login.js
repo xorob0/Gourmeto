@@ -48,7 +48,7 @@ export default () => (
                 </LoginChoiceContainer>
                 <FormInput placeholder="E-mail"/>
                 <FormInput placeholder="Mot de passe"/>
-                <MainButton contain="Connectez-vous" />
+                <MainButton contain="Connectez-vous" link="/"/>
             </InputsContainer>
         </Container>
     </>
