@@ -35,10 +35,10 @@ border-radius: 4px;
 `
 
 
-export const FloatingButton = ({children}) => {
+export const FloatingButton = ({children, link}) => {
     return(
         <>           
-            <Link to="/login" style={{ textDecoration: 'none', color:'#EFEFEF' }}><Button><Text>{children}</Text></Button></Link>           
+            <Link to={link} style={{ textDecoration: 'none', color:'#EFEFEF' }}><Button><Text>{children}</Text></Button></Link>           
         </>
     )
 }

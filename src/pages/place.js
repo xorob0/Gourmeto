@@ -5,6 +5,7 @@ import {ViewsNumber} from '../components/viewsNumber'
 import {PlaceImage} from '../components/placeImage'
 import {ProfileTitle} from '../components/profileTitle'
 import {ProfilePlace} from '../components/profilePlace'
+import {FloatingButton} from "../components/floatingButton"
 import {ViewsList} from '../components/viewsList'
 import placeImage from '../images/place-image-test.jpg'
 
@@ -35,6 +36,7 @@ align-content:space-between;
 export default () => (
     <>
         <Container>
+            <FloatingButton children="Accueil" link="/"></FloatingButton>
             <PlaceContainer>
                 <PlaceImage
                         place_image={placeImage}

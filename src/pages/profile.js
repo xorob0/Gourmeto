@@ -38,12 +38,6 @@ const ViewsLikesContainer = styled.div`
 display: flex;
 ` 
 
-const userRef = firebase.database().ref('users/1');
-userRef.once("value")
-  .then(function(snapshot) {
-        var name = snapshot.val().name;
-  });
-
 export default () => {
   
     return(
@@ -54,11 +48,11 @@ export default () => {
                     profile_image={profileImage}
                 />
                 <ProfileDataContainer>
-                    <ProfileTitle name="Ui"/>
-                    <ProfilePlace place="Ui"/>
+                    <ProfileTitle name="William Dupont"/>
+                    <ProfilePlace place="Mons, Belgium"/>
                     <ViewsLikesContainer>
-                        <ViewsNumber viewsNumber="Ui" />
-                        <LikesNumber likesNumber="Ui" />
+                        <ViewsNumber viewsNumber="1" />
+                        <LikesNumber likesNumber="5" />
                     </ViewsLikesContainer>
                     <ProfileButton />
                 </ProfileDataContainer>

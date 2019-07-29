@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect, useContext} from "react"
 import firebase from '../utils/firebase'
 
 import Layout from "../components/layout"
@@ -9,7 +9,6 @@ import { SearchBar } from '../components/searchBar'
 import {ViewsList} from '../components/viewsList'
 import background from '../images/background.jpg'
 import styled from 'styled-components'
-
 
 const Container = styled.div`
 height:1500px;
@@ -39,7 +38,7 @@ const IndexPage = () => {
   return(
   <>
     <Container>
-      <FloatingButton children="Se connecter"></FloatingButton>
+      <FloatingButton children="Se connecter" link="/login"></FloatingButton>
       <TitleSearchBarContainer>
         <MainTitle />
         <SearchBar />
