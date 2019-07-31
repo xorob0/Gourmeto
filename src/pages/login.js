@@ -1,4 +1,6 @@
-import React, { useContext } from "react"
+import React from "react"
+import { useEffect } from "react"
+import firebase from '../utils/firebase'
 import styled from "styled-components"
 import {MainTitle} from "../components/mainTitle"
 import {FormInput} from "../components/formInput"
@@ -9,8 +11,7 @@ import {FloatingButton} from "../components/floatingButton"
 import {SpecialButton} from "../components/specialButton"
 import googleBrand from "../images/google-brands.svg"
 import facebookBrand from "../images/facebook-brands.svg"
-import {auth, googleProvider, facebookProvider} from '../utils/firebase.js'
-
+import { createContext } from "vm";
 
 const Container = styled.div`
 height:1500px;
@@ -39,10 +40,9 @@ const LoginChoiceContainer = styled.div`
 display:flex;
 `
 
-const LoginPage = () => {
+const IndexPage = () => {
 
     return(
-    <>
         <Container>
         <FloatingButton children="Accueil" link="/"></FloatingButton>
             <MainTitle />
@@ -62,8 +62,7 @@ const LoginPage = () => {
                 <SpecialButton contain="Connectez-vous avec Facebook" icon={facebookBrand}/>
             </InputsContainer>
         </Container>
-    </>
     )
 }
 
-export default LoginPage
+export default IndexPage

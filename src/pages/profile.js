@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import {ProfileImage} from '../components/profileImage'
+import {FloatingButton} from "../components/floatingButton"
 import {ProfileTitle} from '../components/profileTitle'
 import {ProfilePlace} from '../components/profilePlace'
 import {ProfileButton} from '../components/profileButton'
@@ -9,6 +10,7 @@ import {ViewsList} from '../components/viewsList'
 import profileImage from '../images/profile-image-test.jpg'
 import background from '../images/background.jpg'
 import { LikesNumber } from "../components/likesNumber"
+import {useState, useEffect, useContext} from "react"
 import firebase from '../utils/firebase'
 
 const Container = styled.div`
@@ -38,21 +40,32 @@ const ViewsLikesContainer = styled.div`
 display: flex;
 ` 
 
-export default () => {
-  
+const IndexPage = () => {
+
+
+    const [name] = useState("William Dupont");
+    const [place] = useState("Mons, Belgium");
+    const [viewsNumber] = useState(3);
+    const [likesNumber] = useState(15);
+    
+    /*useEffect(() => {
+
+    })*/
+
     return(
-    <>
+        <>
         <Container>
+            <FloatingButton children="Accueil" link="/"></FloatingButton>
             <ProfileContainer>
                 <ProfileImage
                     profile_image={profileImage}
                 />
                 <ProfileDataContainer>
-                    <ProfileTitle name="William Dupont"/>
-                    <ProfilePlace place="Mons, Belgium"/>
+                    <ProfileTitle name={name}/>
+                    <ProfilePlace place={place}/>
                     <ViewsLikesContainer>
-                        <ViewsNumber viewsNumber="1" />
-                        <LikesNumber likesNumber="5" />
+                        <ViewsNumber viewsNumber={viewsNumber} />
+                        <LikesNumber likesNumber={likesNumber} />
                     </ViewsLikesContainer>
                     <ProfileButton />
                 </ProfileDataContainer>
@@ -61,6 +74,8 @@ export default () => {
             <ViewsList />  
             
         </Container>
-    </>
+        </>
     )
 }
+
+export default IndexPage

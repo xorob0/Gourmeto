@@ -28,12 +28,16 @@ const TitleSearchBarContainer = styled.div`
 `
 
 const IndexPage = () => {
-  /*const view = {name:' yyy'}
+ 
+  /*On va charger un state basé sur la base de données à laquelle on s'est connectée */
+  //const view = {name:' yyy'}
 
-    const ref = firebase.database().ref('places/1')
-    ref.on("value", snapshot => console.log(snapshot.val()))   
+  
+  /*const ref = firebase.database().ref('users/1')
+  ref.on("value", snapshot => console.log(snapshot.val()))*/
 
-    ref.update({name: 'ttt'})*/
+  //ref.update({name: 'ttt'})*/
+
 
   return(
   <>
@@ -47,7 +51,7 @@ const IndexPage = () => {
     </Container>
   </>
 )
-  }
+}
 
 
 export default IndexPage

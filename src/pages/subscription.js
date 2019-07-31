@@ -3,6 +3,7 @@ import styled from "styled-components"
 import {MainTitle} from "../components/mainTitle"
 import {FormInput} from "../components/formInput"
 import background from '../images/background.jpg'
+import {FloatingButton} from "../components/floatingButton"
 import {MainButton} from "../components/mainButton"
 import {LoginLink} from "../components/loginLink" 
 
@@ -36,6 +37,7 @@ display:flex;
 export default () => (
     <>
         <Container>
+            <FloatingButton children="Accueil" link="/"></FloatingButton>
             <MainTitle />
             <InputsContainer>
                 <LoginChoiceContainer>
