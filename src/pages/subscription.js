@@ -42,10 +42,10 @@ export default () => (
             <InputsContainer>
                 <LoginChoiceContainer>
                     <LoginContainer>
-                        <LoginLink contain="S'inscrire"/>
+                        <LoginLink contain="S'inscrire" location="/subscription"/>
                     </LoginContainer>
                     <LoginContainer>
-                        <LoginLink contain="Se connecter"/>
+                        <LoginLink contain="Se connecter" location="/subscription"/>
                     </LoginContainer>
                 </LoginChoiceContainer>
                 <FormInput placeholder="Pseudo"/>

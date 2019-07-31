@@ -63,8 +63,8 @@ flex-direction:column;
 justify-content:center;
 `
 
-export const LoginLink = ({contain}) => {
-    if(contain === 'S\'inscrire' && window.location.pathname == "/subscription"){
+export const LoginLink = ({contain, location}) => {
+    if(contain === 'S\'inscrire' && location == "/subscription"){
         return(
             <>
                 <LoginContainer>
@@ -77,7 +77,7 @@ export const LoginLink = ({contain}) => {
             </>
         )
     }
-    else if(contain === 'Se connecter' && window.location.pathname == "/subscription"){
+    else if(contain === 'Se connecter' && location == "/subscription"){
         return(
             <>
                 <LoginContainer>
@@ -89,7 +89,7 @@ export const LoginLink = ({contain}) => {
             </>
         )
     }
-    else if(contain === 'S\'inscrire' && window.location.pathname == "/login"){
+    else if(contain === 'S\'inscrire' && location == "/login"){
         return(
             <>
                 <LoginContainer>

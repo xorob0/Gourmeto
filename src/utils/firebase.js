@@ -1,4 +1,4 @@
-import firebase from "firebase"
+/*import firebase from "firebase"
 
 const config = {
     apiKey: "AIzaSyDCiX9_kFYoatKJB7Idc-K_k2XrkwUs5So",
@@ -10,27 +10,18 @@ const config = {
     appId: "1:208164789511:web:22745f19a559f32a"
   }
 
-let firebaseCache
-
-firebase.initializeApp(config)
-export const googleProvider = new firebase.auth.GoogleAuthProvider()
-export const facebookProvider = new firebase.auth.FacebookAuthProvider()
-export const auth = firebase.auth()
-
-export default firebase
-export const signOut = () => {
-  firebase.auth().signOut()
-}
-
-let firebaseInstance
-export const getFirebase = firebase => {
-  if (firebaseInstance) {
-    return firebaseInstance
-  }
 
   firebase.initializeApp(config)
-  firebaseInstance = firebase
+  export const googleProvider = new firebase.auth.GoogleAuthProvider()
+  export const facebookProvider = new firebase.auth.FacebookAuthProvider()
+  export const auth = firebase.auth()
+  
 
-  return firebase
-}
+  export const signOut = () => {
+    firebase.auth().signOut()
+  }
+
+  export default firebase*/
+  
+
 

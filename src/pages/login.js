@@ -49,10 +49,10 @@ const IndexPage = () => {
             <InputsContainer>
                 <LoginChoiceContainer>
                     <LoginContainer>
-                        <LoginLink contain="S'inscrire"/>
+                        <LoginLink contain="S'inscrire" location="/login"/>
                     </LoginContainer>
                     <LoginContainer>
-                        <LoginLink contain="Se connecter"/>
+                        <LoginLink contain="Se connecter" location="/login"/>
                     </LoginContainer>
                 </LoginChoiceContainer>
                 <FormInput placeholder="E-mail"/>
