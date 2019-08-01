@@ -8,6 +8,8 @@ import {ProfilePlace} from '../components/profilePlace'
 import {FloatingButton} from "../components/floatingButton"
 import {ViewsList} from '../components/viewsList'
 import placeImage from '../images/place-image-test.jpg'
+import firebase from '../utils/firebase'
+import {useState, useEffect} from "react"
 
 const Container = styled.div`
 height:1500px;
@@ -33,7 +35,21 @@ margin-left: 10px;
 align-content:space-between;
 `
 
-export default () => (
+const PlacePage = () => {
+
+    const [name, setName] = useState("");
+    const [place, setPlace] = useState("");
+    const [viewsNumber, setViewsNumber] = useState(0);
+    
+    useEffect(() => {
+        const userRef = firebase.database().ref("/places/1");
+        userRef.on("value", snapshot => setName(snapshot.val().name))
+        userRef.on("value", snapshot => setPlace(snapshot.val().city + ", "+snapshot.val().country))
+        userRef.on("value", snapshot => setViewsNumber(snapshot.val().viewsNumber))
+    });
+
+
+    return(
     <>
         <Container>
             <FloatingButton children="Accueil" link="/"></FloatingButton>
@@ -42,9 +58,9 @@ export default () => (
                         place_image={placeImage}
                 />
                 <PlaceDataContainer>
-                    <ProfileTitle name="La Lorgnette"/>
-                    <ProfilePlace place="Mons, Belgique" />
-                    <ViewsNumber viewsNumber='305' />
+                    <ProfileTitle name={name}/>
+                    <ProfilePlace place={place}/>
+                    <ViewsNumber viewsNumber={viewsNumber} />
                 </PlaceDataContainer>
             </PlaceContainer>
 
@@ -52,4 +68,7 @@ export default () => (
             
         </Container>
     </>
-)
+    )
+}
+
+export default PlacePage
