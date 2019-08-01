@@ -10,9 +10,8 @@ const firebaseConfig = {
   appId: "1:208164789511:web:22745f19a559f32a"
 };
 
-  if (window != undefined) {
-    firebase.initializeApp(firebaseConfig)
-  }
+
+  firebase.initializeApp(firebaseConfig)
   
   /*export const googleProvider = new firebase.auth.GoogleAuthProvider()
   export const facebookProvider = new firebase.auth.FacebookAuthProvider()
