@@ -40,7 +40,7 @@ const ViewsLikesContainer = styled.div`
 display: flex;
 ` 
 
-const IndexPage = () => {
+const ProfilePage = () => {
 
 
     const [name] = useState("William Dupont");
@@ -78,4 +78,4 @@ const IndexPage = () => {
     )
 }
 
-export default IndexPage
+export default ProfilePage

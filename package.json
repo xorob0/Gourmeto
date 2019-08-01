@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "core-js": "^2.6.9",
     "firebase": "^6.3.3",
     "gatsby": "^2.13.31",
     "gatsby-background-image": "^0.8.0",
