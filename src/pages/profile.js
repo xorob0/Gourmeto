@@ -43,14 +43,18 @@ display: flex;
 const ProfilePage = () => {
 
 
-    const [name] = useState("William Dupont");
-    const [place] = useState("Mons, Belgium");
-    const [viewsNumber] = useState(3);
-    const [likesNumber] = useState(15);
+    const [name, setName] = useState("");
+    const [place, setPlace] = useState("");
+    const [viewsNumber, setViewsNumber] = useState(0);
+    const [likesNumber, setLikesNumber] = useState(0);
     
-    /*useEffect(() => {
-
-    })*/
+    useEffect(() => {
+        const userRef = firebase.database().ref("/users/1");
+        userRef.on("value", snapshot => setName(snapshot.val().name))
+        userRef.on("value", snapshot => setPlace(snapshot.val().city + ", "+snapshot.val().country))
+        userRef.on("value", snapshot => setViewsNumber(snapshot.val().viewsNumber))
+        userRef.on("value", snapshot => setLikesNumber(snapshot.val().likesNumber))
+    });
 
     return(
         <>

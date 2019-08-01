@@ -1,5 +1,5 @@
 import React from "react"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import firebase from '../utils/firebase'
 import styled from "styled-components"
 import {MainTitle} from "../components/mainTitle"
@@ -11,7 +11,6 @@ import {FloatingButton} from "../components/floatingButton"
 import {SpecialButton} from "../components/specialButton"
 import googleBrand from "../images/google-brands.svg"
 import facebookBrand from "../images/facebook-brands.svg"
-import { createContext } from "vm";
 
 const Container = styled.div`
 height:1500px;
@@ -43,25 +42,25 @@ display:flex;
 const IndexPage = () => {
 
     return(
-        <Container>
-        <FloatingButton children="Accueil" link="/"></FloatingButton>
-            <MainTitle />
-            <InputsContainer>
-                <LoginChoiceContainer>
-                    <LoginContainer>
-                        <LoginLink contain="S'inscrire" location="/login"/>
-                    </LoginContainer>
-                    <LoginContainer>
-                        <LoginLink contain="Se connecter" location="/login"/>
-                    </LoginContainer>
-                </LoginChoiceContainer>
-                <FormInput placeholder="E-mail"/>
-                <FormInput placeholder="Mot de passe"/>
-                <MainButton contain="Connectez-vous" link="/"/>
-                <SpecialButton contain="Connectez-vous avec Google" icon={googleBrand}/>
-                <SpecialButton contain="Connectez-vous avec Facebook" icon={facebookBrand}/>
-            </InputsContainer>
-        </Container>
+                <Container>
+                    <FloatingButton children="Accueil" link="/"></FloatingButton>
+                    <MainTitle />
+                    <InputsContainer>
+                        <LoginChoiceContainer>
+                            <LoginContainer>
+                                <LoginLink contain="S'inscrire" location="/login"/>
+                            </LoginContainer>
+                            <LoginContainer>
+                                <LoginLink contain="Se connecter" location="/login"/>
+                            </LoginContainer>
+                        </LoginChoiceContainer>
+                        <FormInput placeholder="E-mail"/>
+                        <FormInput placeholder="Mot de passe"/>
+                        <MainButton contain="Connectez-vous" link="/"/>
+                        <SpecialButton contain="Connectez-vous avec Google" icon={googleBrand}/>
+                        <SpecialButton contain="Connectez-vous avec Facebook" icon={facebookBrand}/>
+                    </InputsContainer>
+                </Container>        
     )
 }
 
