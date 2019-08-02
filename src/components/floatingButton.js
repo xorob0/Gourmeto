@@ -28,9 +28,7 @@ font-style: normal;
 font-weight: normal;
 font-size: 26.3333px;
 line-height: 31px;
-
 color: #FFFFFF;
-
 border-radius: 4px;
 `
 

@@ -42,10 +42,10 @@ const PlacePage = () => {
     const [viewsNumber, setViewsNumber] = useState(0);
     
     useEffect(() => {
-        const userRef = firebase.database().ref("/places/1");
-        userRef.on("value", snapshot => setName(snapshot.val().name))
-        userRef.on("value", snapshot => setPlace(snapshot.val().city + ", "+snapshot.val().country))
-        userRef.on("value", snapshot => setViewsNumber(snapshot.val().viewsNumber))
+        const placeRef = firebase.database().ref("/places/1");
+        placeRef.on("value", snapshot => setName(snapshot.val().name))
+        placeRef.on("value", snapshot => setPlace(snapshot.val().city + ", "+snapshot.val().country))
+        placeRef.on("value", snapshot => setViewsNumber(snapshot.val().viewsNumber))
     });
 
 
@@ -64,7 +64,7 @@ const PlacePage = () => {
                 </PlaceDataContainer>
             </PlaceContainer>
 
-            <ViewsList />
+            <ViewsList id="1" />
             
         </Container>
     </>
