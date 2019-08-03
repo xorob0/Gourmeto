@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import profileImage from '../images/profile-image-test.jpg'
 import placeImage from '../images/place-image-test.jpg'
 import { Link } from "gatsby"
+import firebase from "firebase"
+import {useEffect, useState} from "react"
 
 const Container = styled.div`
 display: flex;
@@ -13,6 +15,7 @@ width: 555px;
 height: 450px;
 background: #EFEFEF;
 border-radius: 5px;
+margin-top:20px;
 `
 
 const PlacePhoto = styled.div`
@@ -66,19 +69,41 @@ const HeaderContainer = styled.div`
 display:flex;
 `
 
-export const ViewBoard = ({name, time, place, description}) => {
+export const ViewBoard = ({id}) => {
+
+    const [userId, setUserId] = useState(0);
+    const [userName, setUserName] = useState("");
+    const [placeName, setPlaceName] = useState("");
+    const [placeId, setPlaceId] = useState(0);
+    const [time, setTime] = useState("00:00:00");
+    const [description, setDescription] = useState("");
+
+
+    useEffect(() => {
+        const viewRef = firebase.database().ref(`/views/${id}`);
+        viewRef.on("value", snapshot => setUserId(snapshot.val().userId))
+        viewRef.on("value", snapshot => setPlaceId(snapshot.val().placeId))
+        viewRef.on("value", snapshot => setTime(snapshot.val().time))
+        viewRef.on("value", snapshot => setDescription(snapshot.val().description))
+
+        console.log(`/users/${userId}`);
+        const userRef = firebase.database().ref(`/users/${userId}`);
+        userRef.on("value", snapshot => setUserName(snapshot.val().name));
+        const placeRef = firebase.database().ref(`/places/${placeId}`);
+        placeRef.on("value", snapshot => setPlaceName(snapshot.val().name));
+    })
     return(
         <>
             <Container>
                 <HeaderContainer>
                     <Link to="/profile"><Avatar /></Link>
                     <Header>
-                        <Link to="/profile" style={{ textDecoration: 'none', color: '#EFEFEF' }}><StrongText>{name}</StrongText></Link>
+                        <Link to="/profile" style={{ textDecoration: 'none', color: '#EFEFEF' }}><StrongText>{userName}</StrongText></Link>
                         <Text>il y a {time}</Text>
                     </Header>
                 </HeaderContainer>
                 <Link to="/place"><PlacePhoto /></Link>
-                <Link to="/place" style={{ textDecoration: 'none', color: '#EFEFEF' }}><StrongText>{place}</StrongText></Link>
+                <Link to="/place" style={{ textDecoration: 'none', color: '#EFEFEF' }}><StrongText>{placeName}</StrongText></Link>
                 <Text>{description}</Text>
             </Container>
         </>

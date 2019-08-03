@@ -47,7 +47,7 @@ const IndexPage = () => {
         <MainTitle />
         <SearchBar />
       </TitleSearchBarContainer>
-      <ViewsList id="1"/>
+      <ViewsList />
     </Container>
   </>
 )

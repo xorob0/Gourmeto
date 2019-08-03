@@ -64,7 +64,7 @@ const PlacePage = () => {
                 </PlaceDataContainer>
             </PlaceContainer>
 
-            <ViewsList id="1" />
+            <ViewsList />
             
         </Container>
     </>

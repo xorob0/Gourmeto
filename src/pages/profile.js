@@ -75,7 +75,7 @@ const ProfilePage = () => {
                 </ProfileDataContainer>
             </ProfileContainer>
 
-            <ViewsList id="1" />  
+            <ViewsList /> 
             
         </Container>
         </>
