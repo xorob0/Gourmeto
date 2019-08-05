@@ -90,19 +90,19 @@ export const ViewBoard = ({id}) => {
         userRef.on("value", snapshot => setUserName(snapshot.val().name));
         const placeRef = firebase.database().ref(`/places/${placeId}`);
         placeRef.on("value", snapshot => setPlaceName(snapshot.val().name));
-    }, [userId, setUserId])
+    }, [userId, setUserId, placeId, setPlaceId])
     return(
         <>
             <Container>
                 <HeaderContainer>
-                    <Link to="/profile" state={userId}><Avatar /></Link>
+                    <Link to="/profile" state={{userId}}><Avatar /></Link>
                     <Header>
-                        <Link to="/profile" state={userId} style={{ textDecoration: 'none', color: '#EFEFEF' }}><StrongText>{userName}</StrongText></Link>
+                        <Link to="/profile" state={{userId}} style={{ textDecoration: 'none', color: '#EFEFEF' }}><StrongText>{userName}</StrongText></Link>
                         <Text>il y a {time}</Text>
                     </Header>
                 </HeaderContainer>
-                <Link to="/place"><PlacePhoto /></Link>
-                <Link to="/place" style={{ textDecoration: 'none', color: '#EFEFEF' }}><StrongText>{placeName}</StrongText></Link>
+                <Link to="/place" state={{placeId}}><PlacePhoto /></Link>
+                <Link to="/place" state={{placeId}} style={{ textDecoration: 'none', color: '#EFEFEF' }}><StrongText>{placeName}</StrongText></Link>
                 <Text>{description}</Text>
             </Container>
         </>

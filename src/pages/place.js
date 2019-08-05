@@ -35,14 +35,16 @@ margin-left: 10px;
 align-content:space-between;
 `
 
-const PlacePage = () => {
+const PlacePage = ({location}) => {
+
+    const {placeId} = location.state;
 
     const [name, setName] = useState("");
     const [place, setPlace] = useState("");
     const [viewsNumber, setViewsNumber] = useState(0);
     
     useEffect(() => {
-        const placeRef = firebase.database().ref("/places/1");
+        const placeRef = firebase.database().ref(`/places/${placeId}`);
         placeRef.on("value", snapshot => setName(snapshot.val().name))
         placeRef.on("value", snapshot => setPlace(snapshot.val().city + ", "+snapshot.val().country))
         placeRef.on("value", snapshot => setViewsNumber(snapshot.val().viewsNumber))

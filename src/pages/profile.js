@@ -42,7 +42,7 @@ display: flex;
 
 const ProfilePage = ({location}) => {
 
-    const [id] = location.state;
+    const {userId} = location.state;
 
     const [name, setName] = useState("");
     const [place, setPlace] = useState("");
@@ -50,7 +50,7 @@ const ProfilePage = ({location}) => {
     const [likesNumber, setLikesNumber] = useState(0);
     
     useEffect(() => {
-        const userRef = firebase.database().ref(`/users/${id}`);
+        const userRef = firebase.database().ref(`/users/${userId}`);
         userRef.on("value", snapshot => setName(snapshot.val().name))
         userRef.on("value", snapshot => setPlace(snapshot.val().city + ", "+snapshot.val().country))
         userRef.on("value", snapshot => setViewsNumber(snapshot.val().viewsNumber))
