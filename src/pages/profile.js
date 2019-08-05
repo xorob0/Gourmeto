@@ -1,16 +1,16 @@
 import React from "react"
 import styled from "styled-components"
-import {ProfileImage} from '../components/profileImage'
-import {FloatingButton} from "../components/floatingButton"
-import {ProfileTitle} from '../components/profileTitle'
-import {ProfilePlace} from '../components/profilePlace'
-import {ProfileButton} from '../components/profileButton'
-import {ViewsNumber} from '../components/viewsNumber'
-import {ViewsList} from '../components/viewsList'
+import { ProfileImage } from '../components/profileImage'
+import { FloatingButton } from "../components/floatingButton"
+import { ProfileTitle } from '../components/profileTitle'
+import { ProfilePlace } from '../components/profilePlace'
+import { ProfileButton } from '../components/profileButton'
+import { ViewsNumber } from '../components/viewsNumber'
+import { ViewsList } from '../components/viewsList'
 import profileImage from '../images/profile-image-test.jpg'
 import background from '../images/background.jpg'
 import { LikesNumber } from "../components/likesNumber"
-import {useState, useEffect, useContext} from "react"
+import { useState, useEffect, useContext } from "react"
 import firebase from '../utils/firebase'
 
 const Container = styled.div`
@@ -38,49 +38,51 @@ justify-content: space-evenly;
 
 const ViewsLikesContainer = styled.div`
 display: flex;
-` 
+`
 
-const ProfilePage = ({location}) => {
+const ProfilePage = ({ location }) => {
 
-    const {userId} = location.state;
+	const { userId } = location.state;
 
-    const [name, setName] = useState("");
-    const [place, setPlace] = useState("");
-    const [viewsNumber, setViewsNumber] = useState(0);
-    const [likesNumber, setLikesNumber] = useState(0);
-    
-    useEffect(() => {
-        const userRef = firebase.database().ref(`/users/${userId}`);
-        userRef.on("value", snapshot => setName(snapshot.val().name))
-        userRef.on("value", snapshot => setPlace(snapshot.val().city + ", "+snapshot.val().country))
-        userRef.on("value", snapshot => setViewsNumber(snapshot.val().viewsNumber))
-        userRef.on("value", snapshot => setLikesNumber(snapshot.val().likesNumber))
-    });
+	const [name, setName] = useState("");
+	const [place, setPlace] = useState("");
+	const [viewsNumber, setViewsNumber] = useState(0);
+	const [likesNumber, setLikesNumber] = useState(0);
 
-    return(
-        <>
-        <Container>
-            <FloatingButton children="Accueil" link="/"></FloatingButton>
-            <ProfileContainer>
-                <ProfileImage
-                    profile_image={profileImage}
-                />
-                <ProfileDataContainer>
-                    <ProfileTitle name={name}/>
-                    <ProfilePlace place={place}/>
-                    <ViewsLikesContainer>
-                        <ViewsNumber viewsNumber={viewsNumber} />
-                        <LikesNumber likesNumber={likesNumber} />
-                    </ViewsLikesContainer>
-                    <ProfileButton />
-                </ProfileDataContainer>
-            </ProfileContainer>
+	useEffect(() => {
+		const userRef = firebase.database().ref(`/users/${userId}`);
+		userRef.on("value", snapshot => {
+			const { name, city, country, viewsNumber, likesNumber } = snapshot.val()
+			setName(name)
+			setPlace(city + ", " + country)
+			setViewsNumber(viewsNumber)
+			setLikesNumber(likesNumber)
+		})
+	}, [setName, setPlace, setViewsNumber, setLikesNumber, userId]);
 
-            <ViewsList /> 
-            
-        </Container>
-        </>
-    )
-}
+	return (
+		<>
+			<Container>
+				<FloatingButton children="Accueil" link="/"></FloatingButton>
+				<ProfileContainer>
+					<ProfileImage
+						profile_image={profileImage}
+					/>
+					<ProfileDataContainer>
+						<ProfileTitle name={name} />
+						<ProfilePlace place={place} />
+						<ViewsLikesContainer>
+							<ViewsNumber viewsNumber={viewsNumber} />
+							<LikesNumber likesNumber={likesNumber} />
+						</ViewsLikesContainer>
+						<ProfileButton />
+					</ProfileDataContainer>
+				</ProfileContainer>
 
-export default ProfilePage
+				<ViewsList />
+
+			</Container>
+		</>
+	)
+  }
+xport default ProfilePage
