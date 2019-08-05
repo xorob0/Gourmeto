@@ -86,19 +86,18 @@ export const ViewBoard = ({id}) => {
         viewRef.on("value", snapshot => setTime(snapshot.val().time))
         viewRef.on("value", snapshot => setDescription(snapshot.val().description))
 
-        console.log(`/users/${userId}`);
         const userRef = firebase.database().ref(`/users/${userId}`);
         userRef.on("value", snapshot => setUserName(snapshot.val().name));
         const placeRef = firebase.database().ref(`/places/${placeId}`);
         placeRef.on("value", snapshot => setPlaceName(snapshot.val().name));
-    })
+    }, [userId, setUserId])
     return(
         <>
             <Container>
                 <HeaderContainer>
-                    <Link to="/profile"><Avatar /></Link>
+                    <Link to="/profile" state={userId}><Avatar /></Link>
                     <Header>
-                        <Link to="/profile" style={{ textDecoration: 'none', color: '#EFEFEF' }}><StrongText>{userName}</StrongText></Link>
+                        <Link to="/profile" state={userId} style={{ textDecoration: 'none', color: '#EFEFEF' }}><StrongText>{userName}</StrongText></Link>
                         <Text>il y a {time}</Text>
                     </Header>
                 </HeaderContainer>
