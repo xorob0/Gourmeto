@@ -63,54 +63,54 @@ flex-direction:column;
 justify-content:center;
 `
 
-export const LoginLink = ({contain, location}) => {
-    if(contain === 'S\'inscrire' && location == "/subscription"){
-        return(
-            <>
-                <LoginContainer>
-                    <TextSubscriptionWrapper>
-                        <Link to="/subscription" style={{ textDecoration: 'none', color: '#EFEFEF' }}>{contain}</Link>
-                    </TextSubscriptionWrapper>
-                    <Highlighting />
-                </LoginContainer>
-                
-            </>
-        )
-    }
-    else if(contain === 'Se connecter' && location == "/subscription"){
-        return(
-            <>
-                <LoginContainer>
-                    <TextLoginWrapper>
-                        <Link to="/login" style={{ textDecoration: 'none', color:'#EFEFEF' }}>{contain}</Link>
-                    </TextLoginWrapper>
-                    <TransparentHighlighting />
-                </LoginContainer>
-            </>
-        )
-    }
-    else if(contain === 'S\'inscrire' && location == "/login"){
-        return(
-            <>
-                <LoginContainer>
-                    <TextLoginWrapper>
-                    <Link to="/subscription" style={{ textDecoration: 'none', color: '#EFEFEF' }}>{contain}</Link>
-                    </TextLoginWrapper>
-                    <TransparentHighlighting />
-                </LoginContainer>
-            </>
-        )
-    }
-    else{
-        return(
-            <>
-                <LoginContainer>
-                    <TextLoginWrapper>
-                        <Link to="/login" style={{ textDecoration: 'none', color: '#EFEFEF' }}>{contain}</Link>
-                    </TextLoginWrapper>
-                    <HighlightingTwo />
-                </LoginContainer>
-            </>
-        )
-    }
+export const LoginLink = ({ contain, location }) => {
+	if (contain === 'S\'inscrire' && location == "/subscription") {
+		return (
+			<>
+				<LoginContainer>
+					<TextSubscriptionWrapper>
+						<Link to="/subscription" style={{ textDecoration: 'none', color: '#EFEFEF' }}>{contain}</Link>
+					</TextSubscriptionWrapper>
+					<Highlighting />
+				</LoginContainer>
+
+			</>
+		)
+	}
+	else if (contain === 'Se connecter' && location == "/subscription") {
+		return (
+			<>
+				<LoginContainer>
+					<TextLoginWrapper>
+						<Link to="/login" style={{ textDecoration: 'none', color: '#EFEFEF' }}>{contain}</Link>
+					</TextLoginWrapper>
+					<TransparentHighlighting />
+				</LoginContainer>
+			</>
+		)
+	}
+	else if (contain === 'S\'inscrire' && location == "/login") {
+		return (
+			<>
+				<LoginContainer>
+					<TextLoginWrapper>
+						<Link to="/subscription" style={{ textDecoration: 'none', color: '#EFEFEF' }}>{contain}</Link>
+					</TextLoginWrapper>
+					<TransparentHighlighting />
+				</LoginContainer>
+			</>
+		)
+	}
+	else {
+		return (
+			<>
+				<LoginContainer>
+					<TextLoginWrapper>
+						<Link to="/login" style={{ textDecoration: 'none', color: '#EFEFEF' }}>{contain}</Link>
+					</TextLoginWrapper>
+					<HighlightingTwo />
+				</LoginContainer>
+			</>
+		)
+	}
 }

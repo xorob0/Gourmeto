@@ -1,11 +1,11 @@
 import React from "react"
 import styled from "styled-components"
-import {MainTitle} from "../components/mainTitle"
-import {FormInput} from "../components/formInput"
+import { MainTitle } from "../components/mainTitle"
+import { FormInput } from "../components/formInput"
 import background from '../images/background.jpg'
-import {FloatingButton} from "../components/floatingButton"
-import {MainButton} from "../components/mainButton"
-import {LoginLink} from "../components/loginLink" 
+import { FloatingButton } from "../components/floatingButton"
+import { MainButton } from "../components/mainButton"
+import { LoginLink } from "../components/loginLink"
 
 const Container = styled.div`
 height:1500px;
@@ -35,26 +35,26 @@ display:flex;
 `
 
 export default () => (
-    <>
-        <Container>
-            <FloatingButton children="Accueil" link="/"></FloatingButton>
-            <MainTitle />
-            <InputsContainer>
-                <LoginChoiceContainer>
-                    <LoginContainer>
-                        <LoginLink contain="S'inscrire" location="/subscription"/>
-                    </LoginContainer>
-                    <LoginContainer>
-                        <LoginLink contain="Se connecter" location="/subscription"/>
-                    </LoginContainer>
-                </LoginChoiceContainer>
-                <FormInput placeholder="Pseudo"/>
-                <FormInput placeholder="E-mail"/>
-                <FormInput placeholder="Mot de passe"/>
-                <FormInput placeholder="Ville"/>
-                <FormInput placeholder="Pays"/>
-                <MainButton contain="Inscrivez-vous" link="/"/>
-            </InputsContainer>
-        </Container>
-    </>
+	<>
+		<Container>
+			<FloatingButton children="Accueil" link="/"></FloatingButton>
+			<MainTitle />
+			<InputsContainer>
+				<LoginChoiceContainer>
+					<LoginContainer>
+						<LoginLink contain="S'inscrire" location="/subscription" />
+					</LoginContainer>
+					<LoginContainer>
+						<LoginLink contain="Se connecter" location="/subscription" />
+					</LoginContainer>
+				</LoginChoiceContainer>
+				<FormInput placeholder="Pseudo" />
+				<FormInput placeholder="E-mail" />
+				<FormInput placeholder="Mot de passe" />
+				<FormInput placeholder="Ville" />
+				<FormInput placeholder="Pays" />
+				<MainButton contain="Inscrivez-vous" link="/" />
+			</InputsContainer>
+		</Container>
+	</>
 )

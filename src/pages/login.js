@@ -2,13 +2,13 @@ import React from "react"
 import { useEffect, useState } from "react"
 import firebase from '../utils/firebase'
 import styled from "styled-components"
-import {MainTitle} from "../components/mainTitle"
-import {FormInput} from "../components/formInput"
+import { MainTitle } from "../components/mainTitle"
+import { FormInput } from "../components/formInput"
 import background from '../images/background.jpg'
-import {MainButton} from "../components/mainButton"
-import {LoginLink} from "../components/loginLink" 
-import {FloatingButton} from "../components/floatingButton"
-import {SpecialButton} from "../components/specialButton"
+import { MainButton } from "../components/mainButton"
+import { LoginLink } from "../components/loginLink"
+import { FloatingButton } from "../components/floatingButton"
+import { SpecialButton } from "../components/specialButton"
 import googleBrand from "../images/google-brands.svg"
 import facebookBrand from "../images/facebook-brands.svg"
 
@@ -41,27 +41,27 @@ display:flex;
 
 const IndexPage = () => {
 
-    return(
-                <Container>
-                    <FloatingButton children="Accueil" link="/"></FloatingButton>
-                    <MainTitle />
-                    <InputsContainer>
-                        <LoginChoiceContainer>
-                            <LoginContainer>
-                                <LoginLink contain="S'inscrire" location="/login"/>
-                            </LoginContainer>
-                            <LoginContainer>
-                                <LoginLink contain="Se connecter" location="/login"/>
-                            </LoginContainer>
-                        </LoginChoiceContainer>
-                        <FormInput placeholder="E-mail"/>
-                        <FormInput placeholder="Mot de passe"/>
-                        <MainButton contain="Connectez-vous" link="/"/>
-                        <SpecialButton contain="Connectez-vous avec Google" icon={googleBrand}/>
-                        <SpecialButton contain="Connectez-vous avec Facebook" icon={facebookBrand}/>
-                    </InputsContainer>
-                </Container>        
-    )
+	return (
+		<Container>
+			<FloatingButton children="Accueil" link="/"></FloatingButton>
+			<MainTitle />
+			<InputsContainer>
+				<LoginChoiceContainer>
+					<LoginContainer>
+						<LoginLink contain="S'inscrire" location="/login" />
+					</LoginContainer>
+					<LoginContainer>
+						<LoginLink contain="Se connecter" location="/login" />
+					</LoginContainer>
+				</LoginChoiceContainer>
+				<FormInput placeholder="E-mail" />
+				<FormInput placeholder="Mot de passe" />
+				<MainButton contain="Connectez-vous" link="/" />
+				<SpecialButton contain="Connectez-vous avec Google" icon={googleBrand} />
+				<SpecialButton contain="Connectez-vous avec Facebook" icon={facebookBrand} />
+			</InputsContainer>
+		</Container>
+	)
 }
 
 export default IndexPage

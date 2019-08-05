@@ -32,11 +32,13 @@ color: #FFFFFF;
 border-radius: 4px;
 `
 
+const StyledLink = styled(Link)`
+text-decoration: 'none';
+color:#EFEFEF;
+`
 
-export const FloatingButton = ({children, link}) => {
-    return(
-        <>           
-            <Link to={link} style={{ textDecoration: 'none', color:'#EFEFEF' }}><Button><Text>{children}</Text></Button></Link>           
-        </>
-    )
-}
+export const FloatingButton = ({ children, link }) => (
+	<>
+		<StyledLink to={link}><Button><Text>{children}</Text></Button></StyledLink>
+	</>
+)

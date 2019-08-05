@@ -15,8 +15,4 @@ const ReducedImage = styled.div`
 `
 
 
-export const PlaceImage = ({placeimage}) => {
-    return (
-        <ReducedImage />
-    )
-} 
+export const PlaceImage = ReducedImage
